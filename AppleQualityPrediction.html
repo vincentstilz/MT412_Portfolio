@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--
+	Vincent Stilz
+-->
+<html>
+  <head>
+    <title>Dopetrope by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <section id="header">
+
+        <!-- Nav -->
+        <nav id="nav" style="margin-bottom: 20px;">
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Projects</a>
+              <ul>
+                <li><a href="NeuralNetwork.html">Neural network to Predict Churn</a></li>
+                <li><a href="CarPricePrediction.html">Car Price Prediction and Clustering</a></li>
+                <li><a href="AppleQualityPrediction.html">Apple Quality Prediction</a></li>
+                <li><a href="PersonalityPrediction.html">Personality Profiling</a></li>
+                <li><a href="SQL.html">Heart Attack Data Analysis with SQL</a></li>
+						    <li><a href="PowerBIReport.html">Power BI Report</a></li>
+						    <li><a href="Financial_Projections.html">Financial Projections</a></li>
+					   </ul>
+            </li>
+            <li>
+              <a href="Blogposts.html">Content</a>
+				      <ul>
+					      <li><a href="Blogposts.html">Blog Posts</a></li>
+					      <li><a href="Media.html">Media</a></li>
+					      <li><a href="MS_Healthcare_Report.html">Report</a></li>
+				      </ul>
+            </li>
+            <li>
+            <a href="#">About me</a>
+				      <ul>
+					      <li><a href="CV.html">Resume</a></li>
+					      <li><a href="MoreAboutMe.html">More About Me</a></li>
+					      <li><a href="Contact.html">Contact</a></li>
+				      </ul>
+            </li>
+          </ul>
+        </nav>
+
+      <!-- Main -->
+      <section id="main" style="text-align: left;">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h2>
+                Apple Quality Prediction and Clustering
+              </h2>
+            </header>
+            <p>
+              The goal of this project was to analyse a dataset, provided by an American apple company, which contains scaled data on apple quality. The dataset consists of 4,000 apples and their scaled quality measures: Size, Weight, Sweetness, Crunchiness, Juiciness, Ripeness, Acidity and Quality. We wanted to see if we could create a model to predict this apple quality, and maybe even reduce the amount of measures needed for that prediction. We then later also devised a method to increase the granularity of the apple quality. For this we clustered the apples and suggested new classifications.
+            </p>
+            <section>
+              <p>
+                First we started with loading the dataset and dropping the column with the apple id, we continued with cleaning the dataset. There was only one row with missing values and no outliers which needed to be cleaned.
+              </p>
+              <p>For further preprocessing we checked the datatype of all columns and encoded the quality column. This allowed us to work with a data frame that only contains numeric values with the dtype float64 or int64. Next we checked the distribution of the measures using a Shapiro-Wilk test for each numeric column. The 4 columns which where not normally distributed where visually displayed.</p>
+            </section>
+            <section>
+              
+              <img
+                src="images/AppleQuality_NotNormallyDistributedMeasures.png"
+                alt="Distribution of Not Normally Distributed Features"
+                width="500"
+                height="auto"
+              />
+            </section>
+            <section>
+            <p>
+              To explore how the measures correlated we created a correlation matrix.
+              </p>
+              <img
+                src="images/AppleQuality_Correlation1-1.png"
+                alt="Quality Prediction"
+                width="500"
+                height="auto"
+              />
+              <p>Here we could see, that there is no single measures that is overly important to the model.</p>
+              <p>The next step was to create a random forest classifier model to predict the apple quality based on all 7 available measures. This model had a 0.90 accuracy score. Extracting the features importance of the model also confirms how there isn’t a single measures thats overly important. </p>
+              <p>Our idea was to reduce the measures needed to classify the quality. We wanted to see if it was possible to predict the quality, with only using ripeness, size and weight. This would be beneficial, as the farmers wouldn’t need to cut open their apples to predict quality. However, this model only has an accuracy score of 0.67. This means a model where you only use these external features as predictors isn’t nearly as precise enough as a wholistic approach. It also wouldn’t be precise enough to be usable for farmers.</p>
+              <p>Given the quality measure is not only determinable by external features, we wanted to explore what quality actually means. We thought quality might be more granular than just good or bad if it’s not equal to edible or not edible. For this approach we clustered the bad quality apples in two separate clusters. We than created a data frame that contains three clusters and looked at the centroids of these clusters. To compare the clusters we used the good quality apples as our reference. </p>
+              <img
+                src="images/AppleQuality_Clusters.png"
+                alt="Quality Prediction"
+                width="500"
+                height="auto"
+              />
+              <p>Clusters 1 and 2 are the clusters we created out of the “bad quality” apples, cluster 3 are the “good quality” apples.</p>
+              <p>This more granular view allows for a better segmentation of the apples and better targeting to different use cases.</p>
+              <img
+              src="images/AppleQuality_Distribution.png"
+              alt="Quality Prediction"
+              width="500"
+              height="auto"
+            />
+            <p>This project allowed us to explore different data analytics methods and apply them to a real world scenario.</p>
+            </section>
+            <ul class="actions">
+              <li>
+                <a
+                  href="https://github.com/vincentstilz/Apple_Quality_Prediction_and_Clustering"
+                  class="button alt"
+                  >Link to Github</a
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

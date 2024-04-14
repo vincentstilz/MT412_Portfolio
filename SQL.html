@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+	Vincent Stilz
+-->
+<html>
+  <head>
+    <title>Dopetrope by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <section id="header">
+
+        <!-- Nav -->
+        <nav id="nav" style="margin-bottom: 20px;">
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Projects</a>
+              <ul>
+                <li><a href="NeuralNetwork.html">Neural network to Predict Churn</a></li>
+                <li><a href="CarPricePrediction.html">Car Price Prediction and Clustering</a></li>
+                <li><a href="AppleQualityPrediction.html">Apple Quality Prediction</a></li>
+                <li><a href="PersonalityPrediction.html">Personality Profiling</a></li>
+                <li><a href="SQL.html">Heart Attack Data Analysis with SQL</a></li>
+						    <li><a href="PowerBIReport.html">Power BI Report</a></li>
+						    <li><a href="Financial_Projections.html">Financial Projections</a></li>
+					   </ul>
+            </li>
+            <li>
+              <a href="Blogposts.html">Content</a>
+				      <ul>
+					      <li><a href="Blogposts.html">Blog Posts</a></li>
+					      <li><a href="Media.html">Media</a></li>
+					      <li><a href="MS_Healthcare_Report.html">Report</a></li>
+				      </ul>
+            </li>
+            <li>
+            <a href="#">About me</a>
+				      <ul>
+					      <li><a href="CV.html">Resume</a></li>
+					      <li><a href="MoreAboutMe.html">More About Me</a></li>
+					      <li><a href="Contact.html">Contact</a></li>
+				      </ul>
+            </li>
+          </ul>
+        </nav>
+
+      <!-- Main -->
+      <section id="main" style="text-align: left;">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h2>Analysing Heart Attack Data with SQL </h2>
+              <p>In this project, two colleagues and I looked into a dataset which can be found on Kaggle using the provided <a href="https://www.kaggle.com/datasets/sukhmandeepsinghbrar/heart-attack-dataset">link</a></p>
+              <p>This dataset provides a collection of clinical metrics and diagnostic outcomes aimed at understanding cardiovascular health. It includes:</p>
+              <ul>
+                  <li><strong>Age</strong> and <strong>Gender</strong> (coded as integers), fundamental demographics for risk assessment.</li>
+                  <li><strong>Heart Rate</strong>, <strong>Systolic</strong> and <strong>Diastolic Blood Pressure</strong> (integers), key cardiovascular health indicators.</li>
+                  <li><strong>Blood Sugar</strong> levels (float), critical for diabetes management, a risk factor for heart conditions.</li>
+                  <li><strong>CK-MB</strong> and <strong>Troponin</strong> levels (floats), biochemical markers that indicate heart muscle damage and are crucial for diagnosing myocardial injuries.</li>
+                  <li><strong>Result</strong>: A diagnosis outcome, "positive" or "negative," reflecting the presence or absence of a cardiovascular condition.</li>
+              </ul>
+              <p>Using SQL, we took various steps to analyse the dataset and came to these findings:</p>
+              <ul>
+                  <li><strong>Dataset Verification</strong>: The initial query confirmed the successful upload of the medical dataset.</li>
+                  <li><strong>Diagnosis Counts</strong>: The dataset contains 810 positive and 509 negative diagnoses for heart attacks.</li>
+                  <li><strong>Average Health Metrics by Diagnosis</strong>:
+                      <ul>
+                          <li>Patients with a negative diagnosis have lower average CK-MB and troponin levels (2.55 and 0.027 respectively) compared to those with a positive diagnosis, where the averages are significantly higher (23.27 and 0.571 respectively).</li>
+                      </ul>
+                  </li>
+                  <li>Other health metrics like age, heart rate, systolic and diastolic blood pressure, and blood sugar levels also vary between the two groups, with positive diagnoses showing slightly higher average age and heart rate but similar blood pressure readings and lower blood sugar levels.</li>
+                  <li><strong>Age Distribution</strong>: The overall patient population shows a broader age range with an average age slightly lower than that of positive diagnoses, highlighting age as a risk factor.</li>
+                  <li><strong>Gender Distribution</strong>: Males have a higher count of both positive and negative diagnoses compared to females, indicating a potential gender-related risk factor in heart attack incidence.</li>
+                  <li><strong>Blood Sugar Analysis</strong>: Among patients with a positive heart attack diagnosis, blood sugar levels ranged widely, suggesting variability in glucose management among those diagnosed with heart conditions.</li>
+                  <li><strong>Marker Levels</strong>: Troponin and CK-MB levels were substantially higher on average in positive heart attack diagnoses, underscoring their importance as biomarkers in heart attack detection.</li>
+              </ul>
+              <p>As the marker levels had the highest correlation with the positive results, we analyzed these attributes further:</p>
+              <pre>
+          -- Analysis of heart attack diagnoses based on troponin threshold
+          SELECT troponin > 0.1 AS troponin_high_risk, result, COUNT(*) AS count
+          FROM medical_data
+          GROUP BY troponin_high_risk, result;
+          
+          -- Analysis of heart attack diagnoses based on CK-MB threshold
+          SELECT ck_mb > 5 AS ck_mb_high_risk, result, COUNT(*) AS count
+          FROM medical_data
+          GROUP BY ck_mb_high_risk, result;
+              </pre>
+              <p><strong>High-Risk Threshold Analysis</strong>: Applying thresholds for troponin (&gt;0.1) and CK-MB (&gt;5) revealed a significant association with positive heart attack diagnoses, indicating these thresholds could be effective in risk stratification. When exceeding the troponin threshold of 0.1, only 2 results were negative and 303 positive, while tests exceeding the CK-MB threshold of 5 resulted in 29 negative and 350 positive tests.</p>
+              <p>In summary, the SQL analysis highlights the importance of CK-MB and troponin levels in diagnosing heart attacks, alongside other factors like age, gender, and blood sugar levels. Elevated markers, older age, and being male are associated with a higher risk of positive diagnoses. This data-driven approach provides insights into the demographics and health metrics correlating with heart attack occurrences, offering valuable information for medical research and patient care.</p>
+                  </td>
+                </tr>
+              </table>
+            </section>
+            <ul class="actions">
+              <li>
+                <a
+                  href="https://github.com/vincentstilz/SQL_Project"
+                  class="button alt"
+                  >Link to Github</a
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

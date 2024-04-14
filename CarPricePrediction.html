@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--
+	Vincent Stilz
+-->
+<html>
+  <head>
+    <title>Dopetrope by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+         <!-- Header -->
+         <section id="header">
+          <!-- Nav -->
+        <nav id="nav" style="margin-bottom: 20px;">
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Projects</a>
+              <ul>
+                <li><a href="NeuralNetwork.html">Neural network to Predict Churn</a></li>
+                <li><a href="CarPricePrediction.html">Car Price Prediction and Clustering</a></li>
+                <li><a href="AppleQualityPrediction.html">Apple Quality Prediction</a></li>
+                <li><a href="PersonalityPrediction.html">Personality Profiling</a></li>
+                <li><a href="SQL.html">Heart Attack Data Analysis with SQL</a></li>
+						    <li><a href="PowerBIReport.html">Power BI Report</a></li>
+						    <li><a href="Financial_Projections.html">Financial Projections</a></li>
+					   </ul>
+            </li>
+            <li>
+              <a href="Blogposts.html">Content</a>
+				      <ul>
+					      <li><a href="Blogposts.html">Blog Posts</a></li>
+					      <li><a href="Media.html">Media</a></li>
+					      <li><a href="MS_Healthcare_Report.html">Report</a></li>
+				      </ul>
+            </li>
+            <li>
+            <a href="#">About me</a>
+				      <ul>
+					      <li><a href="CV.html">Resume</a></li>
+					      <li><a href="MoreAboutMe.html">More About Me</a></li>
+					      <li><a href="Contact.html">Contact</a></li>
+				      </ul>
+            </li>
+          </ul>
+        </nav>
+
+      <!-- Main -->
+      <section id="main" style="text-align: left;">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h2>
+                Car Price Prediction and Clustering
+              </h2>
+            </header>
+              <p>
+                The goal of this project was to implement different approaches to see how accurate they are in predicting prices and to uncover hidden patterns in the data. In this project we looked at car data from Kaggle, accessible at this <a href="https://www.kaggle.com/datasets/syedanwarafridi/vehicle-sales-data.">link</a>
+              </p>
+              <p>
+                This dataset captures a wide range of attributes from vehicle sale transactions, including the year, make, model, trim, body type, transmission type, and Vehicle Identification Number. The idea behind using this dataset is to predict the selling prices of vehicles. By analysing and modelling this extensive data, we can identify the key factors that influence vehicle pricing and create an algorithm to predict the selling price based on other features. The effectiveness of our predictive models is measured by R² scores and Mean Squared Error (MSE) values, which indicate the accuracy of the models in predicting car prices. Higher R² scores and lower MSE values demonstrate the models' ability to capture and reflect the complexities of real-world vehicle pricing dynamics.
+              </p>
+            
+              <h3>Preparation of the data</h3>
+              <p>
+                I used the following libraries for this analysis: Pandas, NumPy, Matplotlib and Scikit-learn. I started by preprocessing the data, addressing missing values, and splitting the dataset into training and testing sets to ensure a robust model evaluation.
+              </p>
+            
+              <h3>Predicting the Car Prices</h3>
+              <p>
+                For the regression analysis, I used two different approaches: linear regression and random forest regression. I constructed a pipeline that included preprocessing steps, where numerical features were passed directly, and categorical features were transformed using one-hot encoding to make them interpretable for the models. The first model I used was a linear regression model, which is straightforward and provides a clear understanding of feature influences through its coefficients. However, the model's predictions have an average squared error of 41.1 million, indicating substantial deviations from actual selling prices.
+With an R² score of 0.547, the model explains about 54.7% of the variance in car selling prices from the selected features, which also isn’t enough.
+              </p>
+              <p>
+                Next, I implemented a random forest regressor, which is more complex and can capture non-linear relationships better than linear regression. This model was again part of a pipeline with similar preprocessing steps. Random forest, being an ensemble method that uses multiple decision trees and averages their predictions, tends to perform better on a wide range of data without severe overfitting. I compared its performance with the linear regression model using the same metrics, aiming to determine which model was more effective at predicting vehicle prices under the given data constraints. The Random Forest regressor significantly improves prediction accuracy with an MSE of ~2.24 million and explains ~97.53% of the variance in car selling prices (R² score).Predicted selling prices for the first five cars in the test set range from approximately $4,573 to $23,044, indicating varied price predictions across the dataset.
+              </p>
+              <header>
+                <h3>Clustering</h3>
+              </header>
+              <div class="chart-description">
+                <p>
+                  After completing the regression analysis, I moved on to clustering. Here, my goal was to identify inherent groupings within the vehicle data that could be useful for segmenting the market or understanding customer preferences. I applied the KMeans clustering algorithm and used the Elbow Method to determine the optimal number of clusters by analyzing the sum of squared errors (SSE) for different cluster counts. The optimal point—where the SSE reduction slowed significantly—indicated the most appropriate number of clusters. In this case this was 4 clusters.
+                </p>
+                <img
+                  src="images/Car_Price_Pred_Elbow.png"
+                  alt="Ellbow Method"
+                  style="width: 700px; height: auto;"
+                />
+              </div>
+              <header>
+                <h3>Visualisation of the Clusters</h3>
+              </header>
+              <div class="chart-description">
+                <p>
+                  To facilitate the interpretation of these clusters, I employed dimensionality reduction via Truncated SVD, reducing the dataset to two principal components. This reduction was crucial for visualizing the data in a 2D space, allowing me to plot the clusters and observe how well-separated and cohesive they were.
+                </p>
+                <img
+                  src="images/Car_Price_Pred_Clusters.png"
+                  alt="Inter-Feature Relationship Scatter Plot Matrix"
+                  style="width: 700px; height: auto;"
+                />
+              </div>
+            
+              <p>
+                Overall, my approach was designed to not only predict vehicle prices accurately using two different regression models but also to uncover patterns and segments within the data . Through this comprehensive analysis, I aimed to provide actionable insights that could enhance business understanding related to vehicle sales.
+              </p>
+            </section>
+            <ul class="actions">
+              <li>
+                <a
+                  href="https://github.com/vincentstilz/Car_Price_Prediction"
+                  class="button alt"
+                  >Link to Github</a
+                >
+              </li>
+            </ul>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--
+	Vincent Stilz
+-->
+<html>
+  <head>
+    <title>Dopetrope by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <section id="header">
+
+        <!-- Nav -->
+        <nav id="nav" style="margin-bottom: 20px;">
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Projects</a>
+              <ul>
+                <li><a href="NeuralNetwork.html">Neural network to Predict Churn</a></li>
+                <li><a href="CarPricePrediction.html">Car Price Prediction and Clustering</a></li>
+                <li><a href="AppleQualityPrediction.html">Apple Quality Prediction</a></li>
+                <li><a href="PersonalityPrediction.html">Personality Profiling</a></li>
+                <li><a href="SQL.html">Heart Attack Data Analysis with SQL</a></li>
+						    <li><a href="PowerBIReport.html">Power BI Report</a></li>
+						    <li><a href="Financial_Projections.html">Financial Projections</a></li>
+					   </ul>
+            </li>
+            <li>
+              <a href="Blogposts.html">Content</a>
+				      <ul>
+					      <li><a href="Blogposts.html">Blog Posts</a></li>
+					      <li><a href="Media.html">Media</a></li>
+					      <li><a href="MS_Healthcare_Report.html">Report</a></li>
+				      </ul>
+            </li>
+            <li>
+            <a href="#">About me</a>
+				      <ul>
+					      <li><a href="CV.html">Resume</a></li>
+					      <li><a href="MoreAboutMe.html">More About Me</a></li>
+					      <li><a href="Contact.html">Contact</a></li>
+				      </ul>
+            </li>
+          </ul>
+        </nav>
+
+      <!-- Main -->
+      <section id="main" style="text-align: left;">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h2>Personality Profiling</h2>
+            </header>
+            <p>
+              In this project, we conducted a comprehensive analysis of a merged dataset derived from two distinct surveys: demographics and personality traits of fictitious friends. Our objective was to explore potential correlations and insights that could be applied in marketing analytics, enhancing our understanding of target demographics.
+            </p>
+            <section>
+              <p>
+                We began by normalizing and merging two complex datasets. The demographics data was initially imported and cleansed to handle outliers and missing values using Python’s pandas and sklearn libraries. Notable preprocessing steps included:
+                <ul>
+                  <li>
+                    Identification and normalization of outliers using Whisker Box Plots.
+                    <img
+                      src="images/Personality_WhiskerBoxPlots.png"
+                      alt="Feature Importance"
+                      width="600"
+                      height="auto"
+                    />
+                  </li>
+                  <li>Filling missing values through regression models based on statistically significant correlations.</li>
+                  <li>Data Merging: We performed an inner join to merge the demographics data with personality traits data, ensuring consistency in participant identifiers across both datasets.</li>
+                  <li>Further Data Cleaning: Post-merge, we reassessed the data for new outliers and inconsistencies, employing z-score calculations and manual corrections to refine the dataset.</li>
+                </ul>
+              </p>
+              <p>For exploratory data analysis we deployed various statistical tools to describe and explore the merged dataset. Techniques included:</p>
+                <ul>
+                  <li>Descriptive statistics to understand the baseline characteristics.</li>
+                  <li>Correlation matrices to identify significant relationships between demographic and personality variables.</li>
+                  <img
+                      src="images/Personality_Corr.png"
+                      alt="Feature Importance"
+                      width="600"
+                      height="auto"
+                    />
+                  <li>PCA and K-Means clustering to uncover underlying patterns and groupings in the data. 4 clusters where used and the clusters where displayed in a 3D space after dimensionality reduction. 
+                    <img
+                      src="images/Personality_PCA.png"
+                      alt="Feature Importance"
+                      width="600"
+                      height="auto"
+                    />
+                    <il>The 4 clusters are displayed across the three principal components</il>
+                  </li>
+                </ul>
+            </section>
+            <section>
+              <header>
+                <h3>Insights and Implications</h3>
+              </header>
+              <p>
+                The analysis revealed interesting correlations such as the relationship between physical characteristics (height, weight, shoe size) and gender, as well as personality traits linked to academic performance. 
+              </p>
+              <img
+                src="images/Personality_Insights.png"
+                alt="Feature Importance"
+                width="600"
+                height="auto"
+                />
+              <p>These four strong correlations showcase the previously mentioned relationships, as well some insights on the personality data. The rating for Extraversion (vs. introversion) is correlated to the rating for intuition (vs. observation), and the rating for thinking (vs. feeling) is correlated to the rating for assertiveness (vs. turbulent). To further investigate how the personality data is affected by other variables, we ran a regression analysis for the personality traits. Here we could observe taller individuals tend to have higher ratings for thinking (vs. feeling) (Coef = 1.0569, p-value = 0.013). Higher academic performance in the first year is associated with higher ratings for assertiveness (Coef = 0.6979, p-value = 0.011). The other correlations were not considered as they were either uninteresting or had p values greater than 0.05. However, it is worth noting that individuals with better academic performance tend to be more assertive, which may suggest higher levels of self-confidence.</p>  
+            </section>
+            <section>
+              <header>
+                <h3>Libraries used</h3>
+              </header>
+             <ul>
+              <li>Pandas & Sklearn: For data processing and machine learning tasks</li>
+              <li>Matplotlib & Seaborn: For data visualization and graphical representations.</li>
+             </ul>
+             
+            </section>
+            <section>
+              <header>
+                <h3>Reflection</h3>
+              </header>
+              <p>
+                This project not only enhanced our data handling skills but also provided a platform to critically analyze the applicability of theoretical data in practical scenarios, such as marketing analytics. The limitations encountered, particularly with data consistency and accuracy, underscored the importance of robust data collection methods.
+              </p>
+            
+            <ul class="actions">
+              <li>
+                <a href="https://github.com/vincentstilz/Personality_Profiling" class="button alt">Link to Github</a>
+              </li>
+            </ul>
+          </article>
+        </div>
+      
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.dropotron.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+      </body>
+      </html>

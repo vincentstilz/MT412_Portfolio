@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+	Vincent Stilz
+-->
+<html>
+  <head>
+    <title>Dopetrope by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <section id="header">
+
+        <!-- Nav -->
+        <nav id="nav" style="margin-bottom: 20px;">
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Projects</a>
+              <ul>
+                <li><a href="NeuralNetwork.html">Neural network to Predict Churn</a></li>
+                <li><a href="CarPricePrediction.html">Car Price Prediction and Clustering</a></li>
+                <li><a href="AppleQualityPrediction.html">Apple Quality Prediction</a></li>
+                <li><a href="PersonalityPrediction.html">Personality Profiling</a></li>
+                <li><a href="SQL.html">Heart Attack Data Analysis with SQL</a></li>
+						    <li><a href="PowerBIReport.html">Power BI Report</a></li>
+						    <li><a href="Financial_Projections.html">Financial Projections</a></li>
+					   </ul>
+            </li>
+            <li>
+              <a href="Blogposts.html">Content</a>
+				      <ul>
+					      <li><a href="Blogposts.html">Blog Posts</a></li>
+					      <li><a href="Media.html">Media</a></li>
+					      <li><a href="MS_Healthcare_Report.html">Report</a></li>
+				      </ul>
+            </li>
+            <li>
+            <a href="#">About me</a>
+				      <ul>
+					      <li><a href="CV.html">Resume</a></li>
+					      <li><a href="MoreAboutMe.html">More About Me</a></li>
+					      <li><a href="Contact.html">Contact</a></li>
+				      </ul>
+            </li>
+          </ul>
+        </nav>
+
+      <!-- Main -->
+      <section id="main" style="text-align: left;">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h2>Feedforward neural network to Predict Churn</h2>
+            </header>
+            <p>
+              In this project I wanted to predict the churn of telecommunication customers based on different indicators. The data set is available on Kaggle, you can get there by clicking <a href="https://www.kaggle.com/datasets/blastchar/telco-customer-churn">here</a> 
+            </p>
+            <section>
+              <p>
+                The libraries used for this project are Pandas, Tensorflow and Scikit-learn. I started out be importing and exploring the data set. The data set contains 7043 entries. Most of the columns data type is object and there where also a few missing values.
+              </p>
+              <img src="images/NeuralNetwork.png" alt="Sales Forecast"style="width: 300px; height: auto; margin-top: 20px; margin-bottom: 20px;">
+              <p>
+                After cleaning the missing values I continued with encoding the data frame to prepare it for use with the neural network. I first checked for all unique values in all columns.
+              </p>
+              <p>To prepare the dataset for a neural network, I encoded the categorical data. I employed a manual approach to create more control over the process:
+
+                <ul>
+                  <li>I initialized an <code>encoding_dictionary</code> to store mappings for each categorical column.</li>
+                  <li>For each column, I extracted the unique values, assigned each a unique integer, and stored these mappings in the dictionary.</li>
+                  <li>I then applied this dictionary to the DataFrame, transforming all categorical entries into integers, making the data suitable for modeling.</li>
+              </ul>
+            </p>
+            <p>For the prediction model, I chose a feedforward neural network due to its simplicity and efficiency. This type of network is well-suited for tabular data like this data frame. I used TensorFlow and Scikit-learn for building and training the model, which involved setting up layers, choosing an optimizer, and defining the loss function. Here I used standard values and tried different values to determine the effect this has on the model. The model was trained with normalized features to ensure that all features contributed equally to learning. This was done with the Scikit-learn's StandardScaler.</p>
+            <p>This project not only enhanced my skills in handling and preprocessing data for neural networks but also provided practical experience in churn prediction, which is pivotal in customer retention strategies for businesses.</p>
+            </section>
+            <ul class="actions">
+              <li>
+                <a
+                  href="https://github.com/vincentstilz/Deep-Learning"
+                  class="button alt"
+                  >Link to Github</a
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

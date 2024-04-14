@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+	Vincent Stilz
+-->
+<html>
+  <head>
+    <title>Dopetrope by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <section id="header">
+
+        <!-- Nav -->
+        <nav id="nav" style="margin-bottom: 20px;">
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Projects</a>
+              <ul>
+                <li><a href="NeuralNetwork.html">Neural network to Predict Churn</a></li>
+                <li><a href="CarPricePrediction.html">Car Price Prediction and Clustering</a></li>
+                <li><a href="AppleQualityPrediction.html">Apple Quality Prediction</a></li>
+                <li><a href="PersonalityPrediction.html">Personality Profiling</a></li>
+                <li><a href="SQL.html">Heart Attack Data Analysis with SQL</a></li>
+						    <li><a href="PowerBIReport.html">Power BI Report</a></li>
+						    <li><a href="Financial_Projections.html">Financial Projections</a></li>
+					   </ul>
+            </li>
+            <li>
+              <a href="Blogposts.html">Content</a>
+				      <ul>
+					      <li><a href="Blogposts.html">Blog Posts</a></li>
+					      <li><a href="Media.html">Media</a></li>
+					      <li><a href="MS_Healthcare_Report.html">Report</a></li>
+				      </ul>
+            </li>
+            <li>
+            <a href="#">About me</a>
+				      <ul>
+					      <li><a href="CV.html">Resume</a></li>
+					      <li><a href="MoreAboutMe.html">More About Me</a></li>
+					      <li><a href="Contact.html">Contact</a></li>
+				      </ul>
+            </li>
+          </ul>
+        </nav>
+
+      <!-- Main -->
+      <section id="main" style="text-align: left;">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h2>
+                PowerBI Report on OECD Well-Being Data
+              </h2>
+             
+            </header>
+            <section>
+              <p>
+                This report for a data science module in university showcases different economic and social indicators from all OECD countries. The idea behind this project was to find a suitable data set and then create a interactive Power BI report to allow others to explore the data set. 
+              </p>
+            </p>
+            My group and I settled on the OECD data set as it was high quality data and allows for different visualisations. We initially checked the data set for outliers, but all outlier values where explainable and externally confirmed. The data set contains 31 indicators we grouped into economic, employment, education, pollution, health, safety, geography and others. For the PowerBI report the topics where again grouped together to cover them on six pages. On the left we included a navigation bar and on the top right we included fiter panels. 
+          
+              <p>
+                <strong>Dashboard #1: Overview</strong><br>
+                This dashboard provides a overview on OECD countries GDP, GDP/CAP and population. We chose a map visualisation coupled with a set of key figures to represent the economic overview of OECD countries. The map provides a geographical context, while the use of differently sized circles enables a quick visual comparison between countries. The key figures above the map – Total OECD GDP, Weighted Average OECD GDP/Capita, and Total OECD Population – offer high-level summary statistics that provide a snapshot of the economic scale and individual prosperity within the OECD. While the map changes depending on the filter selection, these panels always display the same.
+              </p>
+              <img
+                src="images/PowerBI_Overview.png"
+                alt="Quality Prediction"
+                style="width: 700px; height: 400px;"
+              />
+              <p>
+                <strong>Dashboard #2: Economics</strong><br>
+                The second page uses summary statistics and a bar chart to display the OECD countries economic and living situation. On the top you can find eight different filter options to look at different indicators. The summary statistics sets individual countries in the bar chart into context. Similarly the bar chart allows to directly compare OECD countries to each other. This is useful to quickly determine how countries rank in a certain measures. 
+              </p>
+              <img
+              src="images/PowerBI_Economics.png"
+              alt="Quality Prediction"
+              style="width: 700px; height: 400px;"
+            />
+              <p>
+                <strong>Dashboard #3: Employment & Education</strong><br>
+                This page covers employment an education. We chose to divide the page into a bar chart and summary statistics for employment measures and education measures. You can choose the indicators you want to see and with this divided layout you can also compare your selected employment and education measures. On the top right you can choose what countries you want to see displayed on this page. You can filter by G7, BRICS, developed and developing countries and the regions like northern or central Europe.
+              </p>
+              <img
+              src="images/PowerBI_Employment&Economics.png"
+              alt="Quality Prediction"
+              style="width: 700px; height: 400px;"
+            />
+              <p>
+                <strong>Dashboard #4: Quality of Life</strong><br>
+                This page covers the quality of life through different safety, health and environment indicators. The page is filtered by developed and developing countries. The first visual on safety displays homicide and safety indicators. On the bottom health and environment are displayed over six different indicators. The way these indicators are displayed allows users to quickly see how countries rank in the different indicators. Together with the “Best” and “Worst” filter, this can be used to determine which OECD countries are the best or worst options in terms of quality of life. 
+              </p>
+              <img
+              src="images/PowerBI_Safety.png"
+              alt="Quality Prediction"
+              style="width: 700px; height: 400px;"
+            />
+              <p>
+                <strong>Dashboard #5: Correlations between Indicators and their Implications</strong><br>
+                On this last page we used python code embedded in PowerBI to search for interesting relations in the data set, regarding personal earnings and life expectancy. We displayed the correlation between the measures in an interactive way. If you want to see a chart in more detail you can click on it and it will direct you to the full sized chart for easier readability. 
+              </p>
+              <img
+              src="images/PowerBI_IndividualOutcome.png"
+              alt="Quality Prediction"
+              style="width: 700px; height: 400px;"
+            />
+              <p>
+                <strong>Dashboard #6: Measures Wiki</strong><br>
+                This last dashboard explains some of the indicators that are not self-explanatory.
+              </p>
+            
+              <p>
+               Overall this PowerBI report showcases my skills in creating interactive and well structured reports, which allow users to conduct their own data exploration. The process of the data selection was integral in creating a good report. When designing the report it was important to think about which visualisations allow for the easiest and most straight forward displaying of the data. Adding features like the navigation panel or the measures wiki where important to increase the usability.
+              </p>
+            </section>
+            <ul class="actions">
+              <li>
+                <a
+                  href="https://github.com/vincentstilz/OECD_Report_PowerBI"
+                  class="button alt"
+                  >Link to Github</a
+                >
+              </li>
+            </ul>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
